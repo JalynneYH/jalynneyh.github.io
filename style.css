@@ -1,0 +1,50 @@
+		*{
+ margin : 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+    margin: 30px;
+    background-color: ;
+}
+
+h1 {
+    font-family: ;
+    font-size: pt;
+    color: ;
+    text-align: ;
+}
+
+p {
+    line-height: ;
+    word-break: ;
+}
+
+img {
+    position: absolute;
+    width: px;
+    height: px;
+    left: ;
+    top: ;
+}
+
+div {
+    position: absolute;
+    width: px;
+    height: px;
+    background-color: ;
+    border: ;
+    border-radius: %;
+}
+
+table, th, tr, td {
+    border: 1px black solid;
+    border-collapse: collapse;
+    width: 200px;
+    height: 20px;
+}
+
+@media screen and (max-width: 704px) {
+    
+}
