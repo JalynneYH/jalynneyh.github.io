@@ -1,113 +1,31 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>LEE YUNHA – MAIN</title>
-  <link rel="stylesheet" href="style.css"/>
+<meta charset="utf-8">
+<title>LEE YUNHA</title>
+<link rel="stylesheet" href="css/common.css">
 </head>
-
 <body>
-  <!-- =========================
-       HEADER (로고 + 네비)
-  ========================== -->
-  <header class="header">
-    <a href="https://jalynneyh.github.io/" class="logo">
-      <img src="https://d2w9rnfcy7mm78.cloudfront.net/41642537/original_749a650870eb16479c7e492221affde4.png?1765177204?bc=0" alt="LEE YUNHA Logo" />
-    </a>
 
-    <nav class="nav" id="topNav">
-      <a href="https://jalynneyh.github.io/">MAIN</a>
-      <a href="https://jalynneyh.github.io/design/">DESIGN</a>
-      <a href="https://jalynneyh.github.io/color-painting/">COLOR PAINTING</a>
-      <a href="https://jalynneyh.github.io/ink-painting/">INK PAINTING</a>
-    </nav>
-  </header>
+<header class="header">
+  <a class="logo" href="index.html"><img src="assets/logo.png"></a>
+  <nav class="nav">
+    <a href="index.html">MAIN</a>
+    <a href="design.html">DESIGN</a>
+    <a href="color.html">COLOR PAINTING</a>
+    <a href="ink.html">INK PAINTING</a>
+  </nav>
+</header>
 
-  <!-- =========================
-       HERO SLIDER (자동+페이드)
-       - 마우스 올리면 일시정지
-       - 좌우 클릭 가능
-  ========================== -->
-  <section class="hero">
-    <div class="hero-slider">
-      <!-- 슬라이드 1 -->
-      <div class="slide active">
-        <img src="https://d2w9rnfcy7mm78.cloudfront.net/41642581/original_8b3619c7c959582ec20577349e324629.png?1765177370?bc=0" alt="Banner 1"/>
-      </div>
+<div class="page">
+  <!-- 여기서 t01~t29 절대좌표 -->
+  <a class="thumb t01" href="detail.html?type=main&id=01"><img src="assets/main/thumb-01.png"></a>
+  …
+</div>
 
-      <!-- 슬라이드 2 (필요 없으면 삭제 가능) -->
-      <div class="slide">
-        <img src="banner-2.jpg" alt="Banner 2"/>
-      </div>
+<div class="footer">© 2025 LEE YUNHA. All rights reserved.</div>
 
-      <!-- 슬라이드 3 (필요 없으면 삭제 가능) -->
-      <div class="slide">
-        <img src="banner-3.jpg" alt="Banner 3"/>
-      </div>
-
-      <!-- 좌우 클릭 영역 -->
-      <div class="hero-control prev"><div class="hero-arrow">&#10094;</div></div>
-      <div class="hero-control next"><div class="hero-arrow">&#10095;</div></div>
-    </div>
-  </section>
-
-  <!-- =========================
-       MAIN THUMB CANVAS (29개)
-       - 1920 기준 좌표
-       - data-canvas-height 값은 캔버스 실제 높이(대략값 OK)
-  ========================== -->
-  <div class="stage">
-    <div class="scaled-stage" data-canvas-height="9800">
-      <div class="canvas main-canvas">
-
-        <!-- ✅ 썸네일 1~29 -->
-        <a class="thumb t01" href="#"><img src="assets/main/thumb-01.jpg" alt=""></a>
-        <a class="thumb t02" href="#"><img src="assets/main/thumb-02.jpg" alt=""></a>
-        <a class="thumb t03" href="#"><img src="assets/main/thumb-03.jpg" alt=""></a>
-        <a class="thumb t04" href="#"><img src="assets/main/thumb-04.jpg" alt=""></a>
-        <a class="thumb t05" href="#"><img src="assets/main/thumb-05.jpg" alt=""></a>
-        <a class="thumb t06" href="#"><img src="assets/main/thumb-06.jpg" alt=""></a>
-        <a class="thumb t07" href="#"><img src="assets/main/thumb-07.jpg" alt=""></a>
-        <a class="thumb t08" href="#"><img src="assets/main/thumb-08.jpg" alt=""></a>
-        <a class="thumb t09" href="#"><img src="assets/main/thumb-09.jpg" alt=""></a>
-        <a class="thumb t10" href="#"><img src="assets/main/thumb-10.jpg" alt=""></a>
-
-        <a class="thumb t11" href="#"><img src="assets/main/thumb-11.jpg" alt=""></a>
-        <a class="thumb t12" href="#"><img src="assets/main/thumb-12.jpg" alt=""></a>
-        <a class="thumb t13" href="#"><img src="assets/main/thumb-13.jpg" alt=""></a>
-        <a class="thumb t14" href="#"><img src="assets/main/thumb-14.jpg" alt=""></a>
-        <a class="thumb t15" href="#"><img src="assets/main/thumb-15.jpg" alt=""></a>
-        <a class="thumb t16" href="#"><img src="assets/main/thumb-16.jpg" alt=""></a>
-        <a class="thumb t17" href="#"><img src="assets/main/thumb-17.jpg" alt=""></a>
-        <a class="thumb t18" href="#"><img src="assets/main/thumb-18.jpg" alt=""></a>
-        <a class="thumb t19" href="#"><img src="assets/main/thumb-19.jpg" alt=""></a>
-        <a class="thumb t20" href="#"><img src="assets/main/thumb-20.jpg" alt=""></a>
-
-        <a class="thumb t21" href="#"><img src="assets/main/thumb-21.jpg" alt=""></a>
-        <a class="thumb t22" href="#"><img src="assets/main/thumb-22.jpg" alt=""></a>
-        <a class="thumb t23" href="#"><img src="assets/main/thumb-23.jpg" alt=""></a>
-        <a class="thumb t24" href="#"><img src="assets/main/thumb-24.jpg" alt=""></a>
-        <a class="thumb t25" href="#"><img src="assets/main/thumb-25.jpg" alt=""></a>
-        <a class="thumb t26" href="#"><img src="assets/main/thumb-26.jpg" alt=""></a>
-        <a class="thumb t27" href="#"><img src="assets/main/thumb-27.jpg" alt=""></a>
-        <a class="thumb t28" href="#"><img src="assets/main/thumb-28.jpg" alt=""></a>
-        <a class="thumb t29" href="#"><img src="assets/main/thumb-29.jpg" alt=""></a>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================
-       SCROLL TOP BUTTON
-  ========================== -->
-  <button class="scroll-top-btn" id="scrollTopBtn"><span>&uarr;</span></button>
-
-  <!-- =========================
-       FOOTER (모든 페이지 공통)
-  ========================== -->
-  <footer class="site-footer">© 2025 LEE YUNHA. All rights reserved.</footer>
-
-  <script src="app.js"></script>
+<div class="scroll-top-btn" id="scrollTopBtn">↑</div>
+<script src="js/common.js"></script>
 </body>
 </html>
