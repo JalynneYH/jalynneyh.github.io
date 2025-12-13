@@ -101,3 +101,36 @@ window.addEventListener("resize", applyCanvasScale);
   slider.addEventListener("mouseenter", () => paused = true);
   slider.addEventListener("mouseleave", () => paused = false);
 })();
+
+/* =================================================
+   CANVAS OFFSET (메인 슬라이드-첫 썸네일 간격 줄이기)
+   - 캔버스 내부 상단 빈 공간(top 시작값)을 위로 당겨서 제거
+================================================= */
+(function () {
+  const wrap = document.querySelector(".canvas-wrap");
+  const canvas = document.querySelector(".canvas");
+  if (!wrap || !canvas) return;
+
+  const BASE = 1920;
+  const scale = Math.min(1, wrap.clientWidth / BASE);
+  document.documentElement.style.setProperty("--scale", String(scale));
+
+  // ✅ 1920 기준 캔버스 전체 높이
+  const rawH = Number(canvas.dataset.height || 0);
+
+  // ✅ 빈 상단 여백 제거(메인에만 data-offset 있음)
+  const rawOffset = Number(canvas.dataset.offset || 0);
+
+  // ✅ 위로 당기기 (스케일 반영)
+  canvas.style.marginTop = (-rawOffset * scale) + "px";
+
+  // ✅ 레이아웃이 깨지지 않게 "보이는 높이"만큼 wrapper 높이 확보
+  // (전체높이 - offset) 를 스케일 적용
+  const visibleH = Math.max(0, rawH - rawOffset) * scale;
+
+  // canvas 자체는 transform으로 줄어들기 때문에
+  // wrap에 실제 높이를 잡아줘야 footer/스크롤이 정상입니다.
+  const stage = canvas.closest(".canvas-stage") || canvas.parentElement;
+  if (stage) stage.style.height = visibleH + "px";
+})();
+
