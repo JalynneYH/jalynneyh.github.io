@@ -25,20 +25,22 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
   position:relative;
   z-index:50;
 }
+
 .logo{
   display:inline-flex;            /* ✅ 클릭 영역 안정 */
   align-items:center;
   position:relative;
-  z-index:60;                     /* ✅ 로고가 클릭 안 되는 문제 방지 */
+  z-index:60;                     /* ✅ 로고 클릭 방해 방지 */
 }
 .logo img{
   height:56px;
 }
+
 .nav{
   display:flex;
   gap:28px;
   position:relative;
-  z-index:60;                     /* ✅ 네비 클릭 안 되는 문제 방지 */
+  z-index:60;                     /* ✅ 네비 클릭 방해 방지 */
 }
 .nav a{
   font-size:12px;
@@ -54,14 +56,21 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
 ================================================= */
 .page{ width:100%; }
 
-/* ✅ 네비바 아래 첫 썸네일까지 여백 통일(원하신 “덜 비게”) */
+/* ✅ 네비바 아래 첫 썸네일까지 여백 통일 */
 .section-gap-top{ margin-top:20px; }
 
 /* =================================================
    HERO / SLIDER (메인에서만 존재)
+   ✅ 핵심: 큰 화면에서 90vh가 과하게 커져 썸네일이 멀어지는 문제 방지
 ================================================= */
 .hero{ position:relative; width:100%; overflow:hidden; }
-.hero-slider{ position:relative; height:90vh; min-height:520px; }
+
+.hero-slider{
+  position:relative;
+  height:90vh;          /* 기본 느낌 유지 */
+  min-height:520px;     /* 너무 작아지지 않게 */
+  max-height:760px;     /* ✅ 너무 커지지 않게 (간격 문제 재발 방지 핵심) */
+}
 
 .hero .slide{
   position:absolute;
@@ -92,6 +101,7 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
 }
 .hero-control.prev{ left:0; }
 .hero-control.next{ right:0; }
+
 .hero-arrow{
   position:absolute;
   top:50%;
@@ -106,10 +116,10 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
 .hero-control:hover .hero-arrow{ opacity:1; }
 
 /* =================================================
-   CANVAS / THUMBNAILS  (옵션B: 1920기준 좌표를 비율 스케일)
+   CANVAS / THUMBNAILS  (옵션B: 1920 기준 좌표를 비율 스케일)
 ================================================= */
 
-/* ✅ 메인: 슬라이드와 첫 썸네일 간격을 줄이기 (원하신 80px 정도) */
+/* ✅ 메인: 슬라이드와 첫 썸네일 간격 (원하신 80px 정도) */
 .stage{ margin-top:80px; }
 
 .canvas-stage{ width:100%; }
@@ -119,7 +129,7 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
   justify-content:center;      /* 가운데 정렬 */
 }
 
-/* ✅ 핵심: 캔버스 자체를 스케일(transform) */
+/* ✅ 캔버스 스케일 */
 .canvas{
   position:relative;
   width:1920px;                 /* 기준 폭 */
@@ -184,7 +194,6 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
   font-weight:700;
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* ✅ 썸네일 끝에서 아래로 내려가게 */
-  padding-top:80px;              /* 원하신 +80px */
-  padding-bottom:40px;           /* 아래 40px */
+  padding-top:80px;              /* ✅ 문구를 더 아래로 */
+  padding-bottom:40px;           /* ✅ 문구 아래 여백 */
 }
