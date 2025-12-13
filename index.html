@@ -4,16 +4,15 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>LEE YUNHA – MAIN</title>
-  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="/css/style.css"/>
 </head>
 
 <body>
-
 <header class="header">
   <a href="https://jalynneyh.github.io/" class="logo">
     <img src="https://d2w9rnfcy7mm78.cloudfront.net/41642537/original_749a650870eb16479c7e492221affde4.png?1765177204?bc=0" alt="LEE YUNHA Logo"/>
   </a>
-  <nav class="nav">
+  <nav class="nav" id="topNav">
     <a href="https://jalynneyh.github.io/">MAIN</a>
     <a href="https://jalynneyh.github.io/design/">DESIGN</a>
     <a href="https://jalynneyh.github.io/color-painting/">COLOR PAINTING</a>
@@ -22,74 +21,63 @@
 </header>
 
 <div class="page">
-  <div class="page-content">
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-slider">
-        <div class="slide active">
-          <img src="https://d2w9rnfcy7mm78.cloudfront.net/41642581/original_8b3619c7c959582ec20577349e324629.png" alt="banner-1">
-        </div>
-        <div class="slide">
-          <img src="./assets/main/banner-02.png" alt="banner-2">
-        </div>
-        <div class="slide">
-          <img src="./assets/main/banner-03.png" alt="banner-3">
-        </div>
-
-        <div class="hero-control prev"><div class="hero-arrow">&#10094;</div></div>
-        <div class="hero-control next"><div class="hero-arrow">&#10095;</div></div>
+  <!-- HERO (메인만) -->
+  <section class="hero">
+    <div class="hero-slider">
+      <div class="slide active">
+        <img src="https://d2w9rnfcy7mm78.cloudfront.net/41642581/original_8b3619c7c959582ec20577349e324629.png" alt="banner-1">
       </div>
-    </section>
+      <div class="slide">
+        <img src="/assets/main/banner-02.png" alt="banner-2">
+      </div>
+      <div class="slide">
+        <img src="/assets/main/banner-03.png" alt="banner-3">
+      </div>
 
-    <!-- THUMB CANVAS -->
-    <div class="stage">
-      <div class="canvas-stage">
-        <div class="canvas-wrap">
+      <div class="hero-control prev"><div class="hero-arrow">&#10094;</div></div>
+      <div class="hero-control next"><div class="hero-arrow">&#10095;</div></div>
+    </div>
+  </section>
 
-          <!-- ✅ yShift로 전체를 위로 당겨서 슬라이더-첫썸네일 간격을 줄임 -->
-          <!-- 첫 썸네일 top(1298) -> 약 80 정도로 보이게: -1218px -->
-          <div class="canvas main-canvas" data-height="9350" style="--yShift:-1218px;">
-            <div class="canvas-inner">
+  <!-- THUMB CANVAS -->
+  <div class="stage">
+    <div class="canvas-stage">
+      <div class="canvas-wrap">
+        <div class="canvas main-canvas" data-height="9350">
 
-              <!-- ✅ detail은 main 레포에 있으므로 절대 URL로 연결 -->
-              <a class="thumb t01" href="https://jalynneyh.github.io/detail.html?type=main&id=1"><img src="./assets/main/thumb-01.png" alt=""></a>
-              <a class="thumb t02" href="https://jalynneyh.github.io/detail.html?type=main&id=2"><img src="./assets/main/thumb-02.png" alt=""></a>
-              <a class="thumb t03" href="https://jalynneyh.github.io/detail.html?type=main&id=3"><img src="./assets/main/thumb-03.png" alt=""></a>
-              <a class="thumb t04" href="https://jalynneyh.github.io/detail.html?type=main&id=4"><img src="./assets/main/thumb-04.png" alt=""></a>
-              <a class="thumb t05" href="https://jalynneyh.github.io/detail.html?type=main&id=5"><img src="./assets/main/thumb-05.png" alt=""></a>
-              <a class="thumb t06" href="https://jalynneyh.github.io/detail.html?type=main&id=6"><img src="./assets/main/thumb-06.png" alt=""></a>
-              <a class="thumb t07" href="https://jalynneyh.github.io/detail.html?type=main&id=7"><img src="./assets/main/thumb-07.png" alt=""></a>
-              <a class="thumb t08" href="https://jalynneyh.github.io/detail.html?type=main&id=8"><img src="./assets/main/thumb-08.png" alt=""></a>
-              <a class="thumb t09" href="https://jalynneyh.github.io/detail.html?type=main&id=9"><img src="./assets/main/thumb-09.png" alt=""></a>
-              <a class="thumb t10" href="https://jalynneyh.github.io/detail.html?type=main&id=10"><img src="./assets/main/thumb-10.png" alt=""></a>
-              <a class="thumb t11" href="https://jalynneyh.github.io/detail.html?type=main&id=11"><img src="./assets/main/thumb-11.png" alt=""></a>
-              <a class="thumb t12" href="https://jalynneyh.github.io/detail.html?type=main&id=12"><img src="./assets/main/thumb-12.png" alt=""></a>
-              <a class="thumb t13" href="https://jalynneyh.github.io/detail.html?type=main&id=13"><img src="./assets/main/thumb-13.png" alt=""></a>
-              <a class="thumb t14" href="https://jalynneyh.github.io/detail.html?type=main&id=14"><img src="./assets/main/thumb-14.png" alt=""></a>
-              <a class="thumb t15" href="https://jalynneyh.github.io/detail.html?type=main&id=15"><img src="./assets/main/thumb-15.png" alt=""></a>
-              <a class="thumb t16" href="https://jalynneyh.github.io/detail.html?type=main&id=16"><img src="./assets/main/thumb-16.png" alt=""></a>
-              <a class="thumb t17" href="https://jalynneyh.github.io/detail.html?type=main&id=17"><img src="./assets/main/thumb-17.png" alt=""></a>
-              <a class="thumb t18" href="https://jalynneyh.github.io/detail.html?type=main&id=18"><img src="./assets/main/thumb-18.png" alt=""></a>
-              <a class="thumb t19" href="https://jalynneyh.github.io/detail.html?type=main&id=19"><img src="./assets/main/thumb-19.png" alt=""></a>
-              <a class="thumb t20" href="https://jalynneyh.github.io/detail.html?type=main&id=20"><img src="./assets/main/thumb-20.png" alt=""></a>
-              <a class="thumb t21" href="https://jalynneyh.github.io/detail.html?type=main&id=21"><img src="./assets/main/thumb-21.png" alt=""></a>
-              <a class="thumb t22" href="https://jalynneyh.github.io/detail.html?type=main&id=22"><img src="./assets/main/thumb-22.png" alt=""></a>
-              <a class="thumb t23" href="https://jalynneyh.github.io/detail.html?type=main&id=23"><img src="./assets/main/thumb-23.png" alt=""></a>
-              <a class="thumb t24" href="https://jalynneyh.github.io/detail.html?type=main&id=24"><img src="./assets/main/thumb-24.png" alt=""></a>
-              <a class="thumb t25" href="https://jalynneyh.github.io/detail.html?type=main&id=25"><img src="./assets/main/thumb-25.png" alt=""></a>
-              <a class="thumb t26" href="https://jalynneyh.github.io/detail.html?type=main&id=26"><img src="./assets/main/thumb-26.png" alt=""></a>
-              <a class="thumb t27" href="https://jalynneyh.github.io/detail.html?type=main&id=27"><img src="./assets/main/thumb-27.png" alt=""></a>
-              <a class="thumb t28" href="https://jalynneyh.github.io/detail.html?type=main&id=28"><img src="./assets/main/thumb-28.png" alt=""></a>
-              <a class="thumb t29" href="https://jalynneyh.github.io/detail.html?type=main&id=29"><img src="./assets/main/thumb-29.png" alt=""></a>
-
-            </div>
-          </div>
+          <a class="thumb t01" href="/detail.html?type=main&id=1"><img src="/assets/main/thumb-01.png" alt=""></a>
+          <a class="thumb t02" href="/detail.html?type=main&id=2"><img src="/assets/main/thumb-02.png" alt=""></a>
+          <a class="thumb t03" href="/detail.html?type=main&id=3"><img src="/assets/main/thumb-03.png" alt=""></a>
+          <a class="thumb t04" href="/detail.html?type=main&id=4"><img src="/assets/main/thumb-04.png" alt=""></a>
+          <a class="thumb t05" href="/detail.html?type=main&id=5"><img src="/assets/main/thumb-05.png" alt=""></a>
+          <a class="thumb t06" href="/detail.html?type=main&id=6"><img src="/assets/main/thumb-06.png" alt=""></a>
+          <a class="thumb t07" href="/detail.html?type=main&id=7"><img src="/assets/main/thumb-07.png" alt=""></a>
+          <a class="thumb t08" href="/detail.html?type=main&id=8"><img src="/assets/main/thumb-08.png" alt=""></a>
+          <a class="thumb t09" href="/detail.html?type=main&id=9"><img src="/assets/main/thumb-09.png" alt=""></a>
+          <a class="thumb t10" href="/detail.html?type=main&id=10"><img src="/assets/main/thumb-10.png" alt=""></a>
+          <a class="thumb t11" href="/detail.html?type=main&id=11"><img src="/assets/main/thumb-11.png" alt=""></a>
+          <a class="thumb t12" href="/detail.html?type=main&id=12"><img src="/assets/main/thumb-12.png" alt=""></a>
+          <a class="thumb t13" href="/detail.html?type=main&id=13"><img src="/assets/main/thumb-13.png" alt=""></a>
+          <a class="thumb t14" href="/detail.html?type=main&id=14"><img src="/assets/main/thumb-14.png" alt=""></a>
+          <a class="thumb t15" href="/detail.html?type=main&id=15"><img src="/assets/main/thumb-15.png" alt=""></a>
+          <a class="thumb t16" href="/detail.html?type=main&id=16"><img src="/assets/main/thumb-16.png" alt=""></a>
+          <a class="thumb t17" href="/detail.html?type=main&id=17"><img src="/assets/main/thumb-17.png" alt=""></a>
+          <a class="thumb t18" href="/detail.html?type=main&id=18"><img src="/assets/main/thumb-18.png" alt=""></a>
+          <a class="thumb t19" href="/detail.html?type=main&id=19"><img src="/assets/main/thumb-19.png" alt=""></a>
+          <a class="thumb t20" href="/detail.html?type=main&id=20"><img src="/assets/main/thumb-20.png" alt=""></a>
+          <a class="thumb t21" href="/detail.html?type=main&id=21"><img src="/assets/main/thumb-21.png" alt=""></a>
+          <a class="thumb t22" href="/detail.html?type=main&id=22"><img src="/assets/main/thumb-22.png" alt=""></a>
+          <a class="thumb t23" href="/detail.html?type=main&id=23"><img src="/assets/main/thumb-23.png" alt=""></a>
+          <a class="thumb t24" href="/detail.html?type=main&id=24"><img src="/assets/main/thumb-24.png" alt=""></a>
+          <a class="thumb t25" href="/detail.html?type=main&id=25"><img src="/assets/main/thumb-25.png" alt=""></a>
+          <a class="thumb t26" href="/detail.html?type=main&id=26"><img src="/assets/main/thumb-26.png" alt=""></a>
+          <a class="thumb t27" href="/detail.html?type=main&id=27"><img src="/assets/main/thumb-27.png" alt=""></a>
+          <a class="thumb t28" href="/detail.html?type=main&id=28"><img src="/assets/main/thumb-28.png" alt=""></a>
+          <a class="thumb t29" href="/detail.html?type=main&id=29"><img src="/assets/main/thumb-29.png" alt=""></a>
 
         </div>
       </div>
     </div>
-
   </div>
 
   <div class="footer">© 2025 LEE YUNHA. All rights reserved.</div>
@@ -97,7 +85,7 @@
 
 <button class="scroll-top-btn" id="scrollTopBtn"><span>&uarr;</span></button>
 
-<!-- MAIN 좌표 CSS -->
+<!-- ✅ 메인 좌표(윤하님이 갖고 계신 그대로 유지) -->
 <style>
   .main-canvas .t01{left:602.71px;top:1298px;width:577.61px;height:786.76px;}
   .main-canvas .t02{left:602.71px;top:2112.54px;width:577.61px;height:355.74px;}
@@ -130,6 +118,6 @@
   .main-canvas .t29{left:918px;top:9016px;width:252.7px;height:319.28px;}
 </style>
 
-<script src="./js/app.js"></script>
+<script src="/js/app.js"></script>
 </body>
 </html>
