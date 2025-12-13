@@ -4,23 +4,68 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>LEE YUNHA – MAIN</title>
+
+  <!-- 공용 CSS -->
   <link rel="stylesheet" href="style.css"/>
+
+  <!-- =================================================
+       MAIN CANVAS 좌표 (t01~t29)
+       - 윤하님 PNG(원본 1920) 기준으로 계산된 값
+  ================================================== -->
   <style>
-    .canvas.main-canvas{height:9999.0px}
-    .main-canvas .t01{left:0.681152px;top:1276.88px;width:1280.43px;height:1843.46px;}.main-canvas .t02{left:602.711px;top:2112.54px;width:577.612px;height:355.736px;}.main-canvas .t03{left:1207.28px;top:2183.0px;width:201.717px;height:285.316px;}.main-canvas .t04{left:465.408px;top:2495.71px;width:432.592px;height:275.741px;}.main-canvas .t05{left:155.0px;top:2495.71px;width:284.513px;height:517.718px;}.main-canvas .t06{left:0.0px;top:0.0px;width:73.4924px;height:86.0998px;}.main-canvas .t07{left:894.02px;top:2722.15px;width:86.7999px;height:86.7999px;}.main-canvas .t08{left:894.02px;top:2808.25px;width:86.7999px;height:86.7999px;}.main-canvas .t09{left:980.12px;top:2636.05px;width:86.4499px;height:86.7999px;}.main-canvas .t10{left:980.12px;top:2722.85px;width:86.4499px;height:172.2px;}.main-canvas .t11{left:1065.87px;top:2636.05px;width:86.7999px;height:86.7999px;}.main-canvas .t12{left:1065.87px;top:2722.15px;width:86.4499px;height:86.7999px;}.main-canvas .t13{left:1238.07px;top:2636.05px;width:86.7999px;height:86.7999px;}.main-canvas .t14{left:1238.07px;top:2808.25px;width:86.7999px;height:86.7999px;}.main-canvas .t15{left:1324.17px;top:2636.05px;width:86.7999px;height:86.7999px;}.main-canvas .t16{left:1324.17px;top:2722.15px;width:86.7998px;height:108.5px;}.main-canvas .t17{left:1018.72px;top:2541.08px;width:270.444px;height:479.748px;}.main-canvas .t18{left:449.0px;top:2786.66px;width:449.0px;height:226.279px;}.main-canvas .t19{left:918.0px;top:3039.0px;width:491.0px;height:688.412px;}.main-canvas .t20{left:1435.0px;top:2496.0px;width:253.631px;height:177.096px;}.main-canvas .t21{left:1435.0px;top:3609.32px;width:254.0px;height:355.366px;}.main-canvas .t22{left:1435.0px;top:3985.0px;width:254.036px;height:363.655px;}.main-canvas .t23{left:386.0px;top:3298.0px;width:511.835px;height:427.0px;}.main-canvas .t24{left:680.502px;top:3039.0px;width:217.47px;height:233.0px;}.main-canvas .t25{left:1347.55px;top:4036.0px;width:558.166px;height:558.166px;}.main-canvas .t26{left:494.579px;top:4029.13px;width:677.479px;height:677.479px;}.main-canvas .t27{left:506.111px;top:4625.75px;width:453.983px;height:199.14px;}.main-canvas .t28{left:193.0px;top:4829.0px;width:1219.14px;height:660.892px;}.main-canvas .t29{left:900.0px;top:5514.0px;width:512.0px;height:342.491px;}.main-canvas .t30{left:432.974px;top:5514.0px;width:439.026px;height:554.833px;}.main-canvas .t31{left:1435.0px;top:5247.0px;width:314.0px;height:243.089px;}.main-canvas .t32{left:900.0px;top:5881.0px;width:864.0px;height:1040.0px;}.main-canvas .t33{left:353.432px;top:4585.0px;width:287.569px;height:216.755px;}.main-canvas .t34{left:251.783px;top:6093.0px;width:621.0px;height:828.0px;}.main-canvas .t35{left:647.0px;top:7491.0px;width:452.694px;height:542.492px;}.main-canvas .t36{left:900.17px;top:6946.0px;width:452.562px;height:542.492px;}.main-canvas .t37{left:1112.0px;top:7909.0px;width:256.355px;height:378.117px;}.main-canvas .t38{left:479.0px;top:6946.0px;width:415.794px;height:541.524px;}.main-canvas .t39{left:1112.0px;top:8291.0px;width:256.237px;height:363.04px;}.main-canvas .t40{left:898.872px;top:8045.0px;width:201.233px;height:242.0px;}.main-canvas .t41{left:850.0px;top:8654.0px;width:250.11px;height:319.278px;}.main-canvas .t42{left:918.0px;top:8986.0px;width:252.698px;height:319.278px;}.main-canvas .t43{left:-79.0px;top:289.0px;width:2077.67px;height:884.0px;}
+    .canvas.main-canvas{height:10005px;}
+
+    .main-canvas .t01{left:606px;top:1304px;width:572px;height:777px;}
+    .main-canvas .t02{left:606px;top:2115px;width:572px;height:352px;}
+    .main-canvas .t03{left:1212px;top:2189px;width:195px;height:278px;}
+
+    .main-canvas .t04{left:156px;top:2501px;width:283px;height:508px;}
+    .main-canvas .t05{left:469px;top:2501px;width:425px;height:269px;}
+    .main-canvas .t06{left:879px;top:2501px;width:425px;height:269px;}
+    .main-canvas .t07{left:1436px;top:2501px;width:249px;height:371px;}
+
+    .main-canvas .t08{left:156px;top:2756px;width:283px;height:508px;}
+    .main-canvas .t09{left:469px;top:2786px;width:425px;height:395px;}
+    .main-canvas .t10{left:879px;top:2770px;width:249px;height:371px;}
+    .main-canvas .t11{left:1129px;top:2770px;width:249px;height:371px;}
+
+    .main-canvas .t12{left:401px;top:3112px;width:719px;height:1224px;}
+    .main-canvas .t13{left:1436px;top:3181px;width:254px;height:371px;}
+    .main-canvas .t14{left:1436px;top:3552px;width:254px;height:371px;}
+
+    .main-canvas .t15{left:156px;top:3805px;width:283px;height:508px;}
+    .main-canvas .t16{left:469px;top:3923px;width:1147px;height:596px;}
+    .main-canvas .t17{left:1616px;top:4189px;width:254px;height:371px;}
+
+    .main-canvas .t18{left:469px;top:4520px;width:425px;height:571px;}
+    .main-canvas .t19{left:894px;top:4520px;width:723px;height:571px;}
+
+    .main-canvas .t20{left:733px;top:5121px;width:723px;height:820px;}
+    .main-canvas .t21{left:1456px;top:5262px;width:254px;height:371px;}
+    .main-canvas .t22{left:1456px;top:5633px;width:254px;height:371px;}
+    .main-canvas .t23{left:156px;top:5941px;width:254px;height:371px;}
+
+    .main-canvas .t24{left:156px;top:6312px;width:1250px;height:571px;}
+    .main-canvas .t25{left:1436px;top:6623px;width:723px;height:820px;}
+
+    .main-canvas .t26{left:1114px;top:7919px;width:254px;height:371px;}
+    .main-canvas .t27{left:904px;top:8056px;width:195px;height:235px;}
+    .main-canvas .t28{left:1114px;top:8300px;width:254px;height:357px;}
+    .main-canvas .t29{left:855px;top:8662px;width:244px;height:313px;}
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
+  <!-- =================================================
+       HEADER (로고 + 네비)
+  ================================================== -->
   <header class="header">
-    <!-- 로고: 이미지 파일, 클릭 시 홈으로 -->
+    <!-- 로고: 클릭 시 메인 -->
     <a href="https://jalynneyh.github.io/" class="logo">
-      <!-- 실제 파일명으로 변경해서 사용하세요 -->
       <img src="https://d2w9rnfcy7mm78.cloudfront.net/41642537/original_749a650870eb16479c7e492221affde4.png?1765177204?bc=0" alt="LEE YUNHA Logo" />
     </a>
 
-    <!-- 메뉴바: 각 페이지로 이동 -->
+    <!-- 네비게이션 -->
     <nav class="nav" id="topNav">
       <a href="https://jalynneyh.github.io/">MAIN</a>
       <a href="https://jalynneyh.github.io/design/">DESIGN</a>
@@ -29,81 +74,148 @@
     </nav>
   </header>
 
-<!-- HERO / SLIDER -->
+  <!-- =================================================
+       HERO SLIDER (상단 배너)
+       - 자동재생 + 페이드
+       - 마우스 올리면 일시정지
+       - 좌/우 영역 클릭으로 수동 전환
+  ================================================== -->
   <section class="hero">
-    <div class="hero-slider">
+    <div class="hero-slider" id="heroSlider">
       <!-- 슬라이드 1 -->
       <div class="slide active">
-        <img src="https://d2w9rnfcy7mm78.cloudfront.net/41642581/original_8b3619c7c959582ec20577349e324629.png?1765177370?bc=0" alt="Haing Poster 1" />
-      </div>
-      <!-- 슬라이드 2 -->
-      <div class="slide">
-        <img src="banner-2.jpg" alt="Haing Poster 2" />
-      </div>
-      <!-- 슬라이드 3 -->
-      <div class="slide">
-        <img src="banner-3.jpg" alt="Haing Poster 3" />
+        <img src="https://d2w9rnfcy7mm78.cloudfront.net/41642581/original_8b3619c7c959582ec20577349e324629.png?1765177370?bc=0" alt="Slide 1" />
       </div>
 
-      <!-- 좌우 클릭 영역 -->
-      <div class="hero-control prev">
-        <div class="hero-arrow">&#10094;</div> <!-- < -->
+      <!-- 슬라이드 2 (원하시는 이미지로 교체) -->
+      <div class="slide">
+        <img src="banner-2.jpg" alt="Slide 2" />
       </div>
-      <div class="hero-control next">
-        <div class="hero-arrow">&#10095;</div> <!-- > -->
+
+      <!-- 슬라이드 3 (원하시는 이미지로 교체) -->
+      <div class="slide">
+        <img src="banner-3.jpg" alt="Slide 3" />
+      </div>
+
+      <!-- 좌/우 클릭 영역 -->
+      <div class="hero-control prev" id="heroPrev">
+        <div class="hero-arrow">&#10094;</div>
+      </div>
+      <div class="hero-control next" id="heroNext">
+        <div class="hero-arrow">&#10095;</div>
       </div>
     </div>
   </section>
 
-<div class="stage" style="margin-top:40px;">
-  <div class="canvas main-canvas" data-height="9999.0">
-    <a class="thumb t01" href="painting-detail.html?type=ink&id=main1"><img src="assets/main/thumb-01.jpg" alt=""></a>
-    <a class="thumb t02" href="painting-detail.html?type=color&id=main2"><img src="assets/main/thumb-02.jpg" alt=""></a>
-    <a class="thumb t03" href="painting-detail.html?type=ink&id=main3"><img src="assets/main/thumb-03.jpg" alt=""></a>
-    <a class="thumb t04" href="painting-detail.html?type=color&id=main4"><img src="assets/main/thumb-04.jpg" alt=""></a>
-    <a class="thumb t05" href="painting-detail.html?type=ink&id=main5"><img src="assets/main/thumb-05.jpg" alt=""></a>
-    <a class="thumb t06" href="painting-detail.html?type=color&id=main6"><img src="assets/main/thumb-06.jpg" alt=""></a>
-    <a class="thumb t07" href="painting-detail.html?type=color&id=main7"><img src="assets/main/thumb-07.jpg" alt=""></a>
-    <a class="thumb t08" href="painting-detail.html?type=color&id=main8"><img src="assets/main/thumb-08.jpg" alt=""></a>
-    <a class="thumb t09" href="painting-detail.html?type=color&id=main9"><img src="assets/main/thumb-09.jpg" alt=""></a>
-    <a class="thumb t10" href="painting-detail.html?type=ink&id=main10"><img src="assets/main/thumb-10.jpg" alt=""></a>
-    <a class="thumb t11" href="painting-detail.html?type=color&id=main11"><img src="assets/main/thumb-11.jpg" alt=""></a>
-    <a class="thumb t12" href="painting-detail.html?type=color&id=main12"><img src="assets/main/thumb-12.jpg" alt=""></a>
-    <a class="thumb t13" href="painting-detail.html?type=color&id=main13"><img src="assets/main/thumb-13.jpg" alt=""></a>
-    <a class="thumb t14" href="painting-detail.html?type=color&id=main14"><img src="assets/main/thumb-14.jpg" alt=""></a>
-    <a class="thumb t15" href="painting-detail.html?type=color&id=main15"><img src="assets/main/thumb-15.jpg" alt=""></a>
-    <a class="thumb t16" href="painting-detail.html?type=ink&id=main16"><img src="assets/main/thumb-16.jpg" alt=""></a>
-    <a class="thumb t17" href="painting-detail.html?type=ink&id=main17"><img src="assets/main/thumb-17.jpg" alt=""></a>
-    <a class="thumb t18" href="painting-detail.html?type=color&id=main18"><img src="assets/main/thumb-18.jpg" alt=""></a>
-    <a class="thumb t19" href="painting-detail.html?type=ink&id=main19"><img src="assets/main/thumb-19.jpg" alt=""></a>
-    <a class="thumb t20" href="painting-detail.html?type=color&id=main20"><img src="assets/main/thumb-20.jpg" alt=""></a>
-    <a class="thumb t21" href="painting-detail.html?type=ink&id=main21"><img src="assets/main/thumb-21.jpg" alt=""></a>
-    <a class="thumb t22" href="painting-detail.html?type=ink&id=main22"><img src="assets/main/thumb-22.jpg" alt=""></a>
-    <a class="thumb t23" href="painting-detail.html?type=color&id=main23"><img src="assets/main/thumb-23.jpg" alt=""></a>
-    <a class="thumb t24" href="painting-detail.html?type=color&id=main24"><img src="assets/main/thumb-24.jpg" alt=""></a>
-    <a class="thumb t25" href="painting-detail.html?type=color&id=main25"><img src="assets/main/thumb-25.jpg" alt=""></a>
-    <a class="thumb t26" href="painting-detail.html?type=color&id=main26"><img src="assets/main/thumb-26.jpg" alt=""></a>
-    <a class="thumb t27" href="painting-detail.html?type=color&id=main27"><img src="assets/main/thumb-27.jpg" alt=""></a>
-    <a class="thumb t28" href="painting-detail.html?type=color&id=main28"><img src="assets/main/thumb-28.jpg" alt=""></a>
-    <a class="thumb t29" href="painting-detail.html?type=color&id=main29"><img src="assets/main/thumb-29.jpg" alt=""></a>
-    <a class="thumb t30" href="painting-detail.html?type=ink&id=main30"><img src="assets/main/thumb-30.jpg" alt=""></a>
-    <a class="thumb t31" href="painting-detail.html?type=color&id=main31"><img src="assets/main/thumb-31.jpg" alt=""></a>
-    <a class="thumb t32" href="painting-detail.html?type=ink&id=main32"><img src="assets/main/thumb-32.jpg" alt=""></a>
-    <a class="thumb t33" href="painting-detail.html?type=color&id=main33"><img src="assets/main/thumb-33.jpg" alt=""></a>
-    <a class="thumb t34" href="painting-detail.html?type=ink&id=main34"><img src="assets/main/thumb-34.jpg" alt=""></a>
-    <a class="thumb t35" href="painting-detail.html?type=color&id=main35"><img src="assets/main/thumb-35.jpg" alt=""></a>
-    <a class="thumb t36" href="painting-detail.html?type=color&id=main36"><img src="assets/main/thumb-36.jpg" alt=""></a>
-    <a class="thumb t37" href="painting-detail.html?type=ink&id=main37"><img src="assets/main/thumb-37.jpg" alt=""></a>
-    <a class="thumb t38" href="painting-detail.html?type=ink&id=main38"><img src="assets/main/thumb-38.jpg" alt=""></a>
-    <a class="thumb t39" href="painting-detail.html?type=ink&id=main39"><img src="assets/main/thumb-39.jpg" alt=""></a>
-    <a class="thumb t40" href="painting-detail.html?type=ink&id=main40"><img src="assets/main/thumb-40.jpg" alt=""></a>
-    <a class="thumb t41" href="painting-detail.html?type=ink&id=main41"><img src="assets/main/thumb-41.jpg" alt=""></a>
-    <a class="thumb t42" href="painting-detail.html?type=ink&id=main42"><img src="assets/main/thumb-42.jpg" alt=""></a>
-    <a class="thumb t43" href="painting-detail.html?type=color&id=main43"><img src="assets/main/thumb-43.jpg" alt=""></a>
-  </div>
-</div>
+  <!-- =================================================
+       MAIN THUMBNAILS (29개)
+       - 윤하님 PNG 기준 좌표로 고정 배치
+       - 이미지 파일만 교체하면 됨
+  ================================================== -->
+  <div class="stage">
+    <div class="canvas main-canvas">
+      <!-- t01~t29 -->
+      <a class="thumb t01" href="painting-detail.html?type=main&id=1"><img src="assets/main/thumb-01.jpg" alt=""></a>
+      <a class="thumb t02" href="painting-detail.html?type=main&id=2"><img src="assets/main/thumb-02.jpg" alt=""></a>
+      <a class="thumb t03" href="painting-detail.html?type=main&id=3"><img src="assets/main/thumb-03.jpg" alt=""></a>
 
-<button class="scroll-top-btn" id="scrollTopBtn"><span>&uarr;</span></button>
-<script src="app.js"></script>
+      <a class="thumb t04" href="painting-detail.html?type=main&id=4"><img src="assets/main/thumb-04.jpg" alt=""></a>
+      <a class="thumb t05" href="painting-detail.html?type=main&id=5"><img src="assets/main/thumb-05.jpg" alt=""></a>
+      <a class="thumb t06" href="painting-detail.html?type=main&id=6"><img src="assets/main/thumb-06.jpg" alt=""></a>
+      <a class="thumb t07" href="painting-detail.html?type=main&id=7"><img src="assets/main/thumb-07.jpg" alt=""></a>
+
+      <a class="thumb t08" href="painting-detail.html?type=main&id=8"><img src="assets/main/thumb-08.jpg" alt=""></a>
+      <a class="thumb t09" href="painting-detail.html?type=main&id=9"><img src="assets/main/thumb-09.jpg" alt=""></a>
+      <a class="thumb t10" href="painting-detail.html?type=main&id=10"><img src="assets/main/thumb-10.jpg" alt=""></a>
+      <a class="thumb t11" href="painting-detail.html?type=main&id=11"><img src="assets/main/thumb-11.jpg" alt=""></a>
+
+      <a class="thumb t12" href="painting-detail.html?type=main&id=12"><img src="assets/main/thumb-12.jpg" alt=""></a>
+      <a class="thumb t13" href="painting-detail.html?type=main&id=13"><img src="assets/main/thumb-13.jpg" alt=""></a>
+      <a class="thumb t14" href="painting-detail.html?type=main&id=14"><img src="assets/main/thumb-14.jpg" alt=""></a>
+
+      <a class="thumb t15" href="painting-detail.html?type=main&id=15"><img src="assets/main/thumb-15.jpg" alt=""></a>
+      <a class="thumb t16" href="painting-detail.html?type=main&id=16"><img src="assets/main/thumb-16.jpg" alt=""></a>
+      <a class="thumb t17" href="painting-detail.html?type=main&id=17"><img src="assets/main/thumb-17.jpg" alt=""></a>
+
+      <a class="thumb t18" href="painting-detail.html?type=main&id=18"><img src="assets/main/thumb-18.jpg" alt=""></a>
+      <a class="thumb t19" href="painting-detail.html?type=main&id=19"><img src="assets/main/thumb-19.jpg" alt=""></a>
+
+      <a class="thumb t20" href="painting-detail.html?type=main&id=20"><img src="assets/main/thumb-20.jpg" alt=""></a>
+      <a class="thumb t21" href="painting-detail.html?type=main&id=21"><img src="assets/main/thumb-21.jpg" alt=""></a>
+
+      <a class="thumb t22" href="painting-detail.html?type=main&id=22"><img src="assets/main/thumb-22.jpg" alt=""></a>
+      <a class="thumb t23" href="painting-detail.html?type=main&id=23"><img src="assets/main/thumb-23.jpg" alt=""></a>
+
+      <a class="thumb t24" href="painting-detail.html?type=main&id=24"><img src="assets/main/thumb-24.jpg" alt=""></a>
+      <a class="thumb t25" href="painting-detail.html?type=main&id=25"><img src="assets/main/thumb-25.jpg" alt=""></a>
+
+      <a class="thumb t26" href="painting-detail.html?type=main&id=26"><img src="assets/main/thumb-26.jpg" alt=""></a>
+      <a class="thumb t27" href="painting-detail.html?type=main&id=27"><img src="assets/main/thumb-27.jpg" alt=""></a>
+      <a class="thumb t28" href="painting-detail.html?type=main&id=28"><img src="assets/main/thumb-28.jpg" alt=""></a>
+      <a class="thumb t29" href="painting-detail.html?type=main&id=29"><img src="assets/main/thumb-29.jpg" alt=""></a>
+    </div>
+  </div>
+
+  <!-- =================================================
+       SCROLL TO TOP BUTTON
+  ================================================== -->
+  <button class="scroll-top-btn" id="scrollTopBtn"><span>&uarr;</span></button>
+
+  <!-- 공용 JS -->
+  <script src="app.js"></script>
+
+  <!-- =================================================
+       MAIN ONLY: HERO SLIDER JS
+       - 자동 전환 시간/페이드 속도는 아래에서 조절
+       - hover(마우스 올림) 시 자동재생 pause
+  ================================================== -->
+  <script>
+    (function(){
+      const slider = document.getElementById("heroSlider");
+      const slides = Array.from(document.querySelectorAll(".hero .slide"));
+      const prevBtn = document.getElementById("heroPrev");
+      const nextBtn = document.getElementById("heroNext");
+
+      if(!slider || slides.length === 0) return;
+
+      let index = 0;
+      const INTERVAL = 4500; // 자동 전환 시간(ms)
+      let timer = null;
+      let paused = false;
+
+      function show(i){
+        slides.forEach(s => s.classList.remove("active"));
+        slides[i].classList.add("active");
+      }
+
+      function next(){
+        index = (index + 1) % slides.length;
+        show(index);
+      }
+
+      function prev(){
+        index = (index - 1 + slides.length) % slides.length;
+        show(index);
+      }
+
+      function start(){
+        clearInterval(timer);
+        timer = setInterval(() => {
+          if(!paused) next();
+        }, INTERVAL);
+      }
+
+      // 시작
+      start();
+
+      // 수동 전환
+      if(nextBtn) nextBtn.addEventListener("click", () => { next(); start(); });
+      if(prevBtn) prevBtn.addEventListener("click", () => { prev(); start(); });
+
+      // hover pause
+      slider.addEventListener("mouseenter", () => paused = true);
+      slider.addEventListener("mouseleave", () => paused = false);
+    })();
+  </script>
 </body>
 </html>
