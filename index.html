@@ -1,16 +1,306 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-	<meta charset="utf-8">
-	<title>제목</title>
-	<meta name="description" content="설명">
-	<meta name="keywords" content="키워드1, 키워드2">
-	<link rel="stylesheet" href="style.css">
-	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link rel="icon" type="image/png" href="">
-	<meta property="og:image" content="">
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEE YUNHA Portfolio</title>
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      background-color: #111;
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", system-ui,
+        sans-serif;
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    .header {
+      width: 100%;
+      padding: 20px 40px;
+      background-color: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    /* 로고 이미지 */
+    .logo img {
+      height: 60px;            /* 로고 크기 조정 */
+      display: block;
+    }
+
+    /* NAV */
+    .nav {
+      display: flex;
+      gap: 32px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav a {
+      color: #bcbcbc;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: #ffffff;
+    }
+
+    .nav a.active {
+      color: #ffffff;
+    }
+
+    /* HERO / SLIDER */
+    .hero {
+      width: 100%;
+      margin-top: 120px; /* 헤더 높이만큼 띄우기 */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-slider {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 120px); /* 윈도우 높이에서 헤더 제외 */
+      max-height: 750px;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 좌우 클릭 영역 (투명 버튼) */
+    .hero-control {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 18%;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .hero-control.prev {
+      left: 0;
+    }
+
+    .hero-control.next {
+      right: 0;
+    }
+
+    /* 화살표 아이콘 (보여주고 싶을 때) */
+    .hero-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 32px;
+      color: rgba(255, 255, 255, 0.6);
+      pointer-events: none;
+    }
+
+    .hero-control.prev .hero-arrow {
+      left: 20px;
+    }
+
+    .hero-control.next .hero-arrow {
+      right: 20px;
+    }
+
+    /* 맨 위로 가기 버튼 */
+    .scroll-top-btn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background-color: rgba(17, 17, 17, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 200;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .scroll-top-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .scroll-top-btn span {
+      display: inline-block;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .header {
+        padding: 14px 16px;
+      }
+
+      .logo img {
+        height: 48px;
+      }
+
+      .nav {
+        gap: 16px;
+        font-size: 12px;
+      }
+
+      .hero-slider {
+        height: calc(100vh - 100px);
+      }
+
+      .hero-control {
+        width: 30%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav {
+        display: none; /* 아주 작은 화면에서는 메뉴 숨기고 후에 햄버거 메뉴로 교체해도 됨 */
+      }
+
+      .hero-slider {
+        height: calc(100vh - 80px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <!-- 로고: 이미지 파일, 클릭 시 홈으로 -->
+    <a href="index.html" class="logo">
+      <!-- 실제 파일명으로 변경해서 사용하세요 -->
+      <img src="https://d2w9rnfcy7mm78.cloudfront.net/41642537/original_749a650870eb16479c7e492221affde4.png?1765177204?bc=0" alt="LEE YUNHA Logo" />
+    </a>
+
+    <!-- 메뉴바: 각 페이지로 이동 -->
+    <nav class="nav">
+      <a href="index.html" class="active">MAIN</a>
+      <a href="design/index.html">DESIGN</a>
+      <a href="color-painting.html">COLOR PAINTING</a>
+      <a href="ink-painting.html">INK PAINTING</a>
+    </nav>
+  </header>
+
+  <!-- HERO / SLIDER -->
+  <section class="hero">
+    <div class="hero-slider">
+      <!-- 슬라이드 1 -->
+      <div class="slide active">
+        <img src="https://d2w9rnfcy7mm78.cloudfront.net/41642581/original_8b3619c7c959582ec20577349e324629.png?1765177370?bc=0" alt="Haing Poster 1" />
+      </div>
+      <!-- 슬라이드 2 -->
+      <div class="slide">
+        <img src="banner-2.jpg" alt="Haing Poster 2" />
+      </div>
+      <!-- 슬라이드 3 -->
+      <div class="slide">
+        <img src="banner-3.jpg" alt="Haing Poster 3" />
+      </div>
+
+      <!-- 좌우 클릭 영역 -->
+      <div class="hero-control prev">
+        <div class="hero-arrow">&#10094;</div> <!-- < -->
+      </div>
+      <div class="hero-control next">
+        <div class="hero-arrow">&#10095;</div> <!-- > -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 맨 위로 가기 버튼 (오른쪽 아래 화살표 역할) -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="맨 위로 가기">
+    <span>&uarr;</span>
+  </button>
+
+  <script>
+    // ---------- 슬라이더 ----------
+    const slides = document.querySelectorAll(".slide");
+    const prevBtn = document.querySelector(".hero-control.prev");
+    const nextBtn = document.querySelector(".hero-control.next");
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function goNext() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    function goPrev() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    prevBtn.addEventListener("click", goPrev);
+    nextBtn.addEventListener("click", goNext);
+
+    // 자동 슬라이드 돌리고 싶으면 이 부분 주석 해제
+    // setInterval(goNext, 6000);
+
+    // ---------- 맨 위로 가기 버튼 ----------
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+
+    // 스크롤이 조금 내려갔을 때만 버튼 보이게 하고 싶으면 아래 코드 사용
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        scrollTopBtn.style.opacity = "1";
+        scrollTopBtn.style.pointerEvents = "auto";
+      } else {
+        scrollTopBtn.style.opacity = "0.3";
+        scrollTopBtn.style.pointerEvents = "auto";
+      }
+    });
+  </script>
 </body>
 </html>
