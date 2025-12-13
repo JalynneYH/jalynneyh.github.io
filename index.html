@@ -1,205 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LEE YUNHA Portfolio</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>LEE YUNHA – MAIN</title>
+  <link rel="stylesheet" href="style.css"/>
   <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: #111;
-      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", system-ui,
-        sans-serif;
-      color: #fff;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* HEADER */
-    .header {
-      width: 100%;
-      padding: 20px 40px;
-      background-color: #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 100;
-    }
-
-    /* 로고 이미지 */
-    .logo img {
-      height: 60px;            /* 로고 크기 조정 */
-      display: block;
-    }
-
-    /* NAV */
-    .nav {
-      display: flex;
-      gap: 32px;
-      font-size: 14px;
-      letter-spacing: 0.5px;
-    }
-
-    .nav a {
-      color: #bcbcbc;
-      position: relative;
-      padding-bottom: 4px;
-      transition: color 0.2s ease;
-    }
-
-    .nav a:hover {
-      color: #ffffff;
-    }
-
-    .nav a.active {
-      color: #ffffff;
-    }
-
-    /* HERO / SLIDER */
-    .hero {
-      width: 100%;
-      margin-top: 120px; /* 헤더 높이만큼 띄우기 */
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-slider {
-      position: relative;
-      width: 100%;
-      height: calc(100vh - 120px); /* 윈도우 높이에서 헤더 제외 */
-      max-height: 750px;
-    }
-
-    .slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-
-    .slide.active {
-      opacity: 1;
-      z-index: 1;
-    }
-
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* 좌우 클릭 영역 (투명 버튼) */
-    .hero-control {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 18%;
-      cursor: pointer;
-      z-index: 2;
-    }
-
-    .hero-control.prev {
-      left: 0;
-    }
-
-    .hero-control.next {
-      right: 0;
-    }
-
-    /* 화살표 아이콘 (보여주고 싶을 때) */
-    .hero-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 32px;
-      color: rgba(255, 255, 255, 0.6);
-      pointer-events: none;
-    }
-
-    .hero-control.prev .hero-arrow {
-      left: 20px;
-    }
-
-    .hero-control.next .hero-arrow {
-      right: 20px;
-    }
-
-    /* 맨 위로 가기 버튼 */
-    .scroll-top-btn {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      background-color: rgba(17, 17, 17, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 200;
-      backdrop-filter: blur(6px);
-      transition: background-color 0.2s ease, transform 0.15s ease;
-    }
-
-    .scroll-top-btn:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .scroll-top-btn span {
-      display: inline-block;
-      font-size: 18px;
-      line-height: 1;
-    }
-
-    /* 반응형 */
-    @media (max-width: 768px) {
-      .header {
-        padding: 14px 16px;
-      }
-
-      .logo img {
-        height: 48px;
-      }
-
-      .nav {
-        gap: 16px;
-        font-size: 12px;
-      }
-
-      .hero-slider {
-        height: calc(100vh - 100px);
-      }
-
-      .hero-control {
-        width: 30%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .nav {
-        display: none; /* 아주 작은 화면에서는 메뉴 숨기고 후에 햄버거 메뉴로 교체해도 됨 */
-      }
-
-      .hero-slider {
-        height: calc(100vh - 80px);
-      }
-    }
+    .canvas.main-canvas{height:9999.0px}
+    .main-canvas .t01{left:0.681152px;top:1276.88px;width:1280.43px;height:1843.46px;}.main-canvas .t02{left:602.711px;top:2112.54px;width:577.612px;height:355.736px;}.main-canvas .t03{left:1207.28px;top:2183.0px;width:201.717px;height:285.316px;}.main-canvas .t04{left:465.408px;top:2495.71px;width:432.592px;height:275.741px;}.main-canvas .t05{left:155.0px;top:2495.71px;width:284.513px;height:517.718px;}.main-canvas .t06{left:0.0px;top:0.0px;width:73.4924px;height:86.0998px;}.main-canvas .t07{left:894.02px;top:2722.15px;width:86.7999px;height:86.7999px;}.main-canvas .t08{left:894.02px;top:2808.25px;width:86.7999px;height:86.7999px;}.main-canvas .t09{left:980.12px;top:2636.05px;width:86.4499px;height:86.7999px;}.main-canvas .t10{left:980.12px;top:2722.85px;width:86.4499px;height:172.2px;}.main-canvas .t11{left:1065.87px;top:2636.05px;width:86.7999px;height:86.7999px;}.main-canvas .t12{left:1065.87px;top:2722.15px;width:86.4499px;height:86.7999px;}.main-canvas .t13{left:1238.07px;top:2636.05px;width:86.7999px;height:86.7999px;}.main-canvas .t14{left:1238.07px;top:2808.25px;width:86.7999px;height:86.7999px;}.main-canvas .t15{left:1324.17px;top:2636.05px;width:86.7999px;height:86.7999px;}.main-canvas .t16{left:1324.17px;top:2722.15px;width:86.7998px;height:108.5px;}.main-canvas .t17{left:1018.72px;top:2541.08px;width:270.444px;height:479.748px;}.main-canvas .t18{left:449.0px;top:2786.66px;width:449.0px;height:226.279px;}.main-canvas .t19{left:918.0px;top:3039.0px;width:491.0px;height:688.412px;}.main-canvas .t20{left:1435.0px;top:2496.0px;width:253.631px;height:177.096px;}.main-canvas .t21{left:1435.0px;top:3609.32px;width:254.0px;height:355.366px;}.main-canvas .t22{left:1435.0px;top:3985.0px;width:254.036px;height:363.655px;}.main-canvas .t23{left:386.0px;top:3298.0px;width:511.835px;height:427.0px;}.main-canvas .t24{left:680.502px;top:3039.0px;width:217.47px;height:233.0px;}.main-canvas .t25{left:1347.55px;top:4036.0px;width:558.166px;height:558.166px;}.main-canvas .t26{left:494.579px;top:4029.13px;width:677.479px;height:677.479px;}.main-canvas .t27{left:506.111px;top:4625.75px;width:453.983px;height:199.14px;}.main-canvas .t28{left:193.0px;top:4829.0px;width:1219.14px;height:660.892px;}.main-canvas .t29{left:900.0px;top:5514.0px;width:512.0px;height:342.491px;}.main-canvas .t30{left:432.974px;top:5514.0px;width:439.026px;height:554.833px;}.main-canvas .t31{left:1435.0px;top:5247.0px;width:314.0px;height:243.089px;}.main-canvas .t32{left:900.0px;top:5881.0px;width:864.0px;height:1040.0px;}.main-canvas .t33{left:353.432px;top:4585.0px;width:287.569px;height:216.755px;}.main-canvas .t34{left:251.783px;top:6093.0px;width:621.0px;height:828.0px;}.main-canvas .t35{left:647.0px;top:7491.0px;width:452.694px;height:542.492px;}.main-canvas .t36{left:900.17px;top:6946.0px;width:452.562px;height:542.492px;}.main-canvas .t37{left:1112.0px;top:7909.0px;width:256.355px;height:378.117px;}.main-canvas .t38{left:479.0px;top:6946.0px;width:415.794px;height:541.524px;}.main-canvas .t39{left:1112.0px;top:8291.0px;width:256.237px;height:363.04px;}.main-canvas .t40{left:898.872px;top:8045.0px;width:201.233px;height:242.0px;}.main-canvas .t41{left:850.0px;top:8654.0px;width:250.11px;height:319.278px;}.main-canvas .t42{left:918.0px;top:8986.0px;width:252.698px;height:319.278px;}.main-canvas .t43{left:-79.0px;top:289.0px;width:2077.67px;height:884.0px;}
   </style>
 </head>
 
@@ -221,7 +29,7 @@
     </nav>
   </header>
 
-  <!-- HERO / SLIDER -->
+<!-- HERO / SLIDER -->
   <section class="hero">
     <div class="hero-slider">
       <!-- 슬라이드 1 -->
@@ -247,60 +55,55 @@
     </div>
   </section>
 
-  <!-- 맨 위로 가기 버튼 (오른쪽 아래 화살표 역할) -->
-  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="맨 위로 가기">
-    <span>&uarr;</span>
-  </button>
+<div class="stage" style="margin-top:40px;">
+  <div class="canvas main-canvas" data-height="9999.0">
+    <a class="thumb t01" href="painting-detail.html?type=ink&id=main1"><img src="assets/main/thumb-01.jpg" alt=""></a>
+    <a class="thumb t02" href="painting-detail.html?type=color&id=main2"><img src="assets/main/thumb-02.jpg" alt=""></a>
+    <a class="thumb t03" href="painting-detail.html?type=ink&id=main3"><img src="assets/main/thumb-03.jpg" alt=""></a>
+    <a class="thumb t04" href="painting-detail.html?type=color&id=main4"><img src="assets/main/thumb-04.jpg" alt=""></a>
+    <a class="thumb t05" href="painting-detail.html?type=ink&id=main5"><img src="assets/main/thumb-05.jpg" alt=""></a>
+    <a class="thumb t06" href="painting-detail.html?type=color&id=main6"><img src="assets/main/thumb-06.jpg" alt=""></a>
+    <a class="thumb t07" href="painting-detail.html?type=color&id=main7"><img src="assets/main/thumb-07.jpg" alt=""></a>
+    <a class="thumb t08" href="painting-detail.html?type=color&id=main8"><img src="assets/main/thumb-08.jpg" alt=""></a>
+    <a class="thumb t09" href="painting-detail.html?type=color&id=main9"><img src="assets/main/thumb-09.jpg" alt=""></a>
+    <a class="thumb t10" href="painting-detail.html?type=ink&id=main10"><img src="assets/main/thumb-10.jpg" alt=""></a>
+    <a class="thumb t11" href="painting-detail.html?type=color&id=main11"><img src="assets/main/thumb-11.jpg" alt=""></a>
+    <a class="thumb t12" href="painting-detail.html?type=color&id=main12"><img src="assets/main/thumb-12.jpg" alt=""></a>
+    <a class="thumb t13" href="painting-detail.html?type=color&id=main13"><img src="assets/main/thumb-13.jpg" alt=""></a>
+    <a class="thumb t14" href="painting-detail.html?type=color&id=main14"><img src="assets/main/thumb-14.jpg" alt=""></a>
+    <a class="thumb t15" href="painting-detail.html?type=color&id=main15"><img src="assets/main/thumb-15.jpg" alt=""></a>
+    <a class="thumb t16" href="painting-detail.html?type=ink&id=main16"><img src="assets/main/thumb-16.jpg" alt=""></a>
+    <a class="thumb t17" href="painting-detail.html?type=ink&id=main17"><img src="assets/main/thumb-17.jpg" alt=""></a>
+    <a class="thumb t18" href="painting-detail.html?type=color&id=main18"><img src="assets/main/thumb-18.jpg" alt=""></a>
+    <a class="thumb t19" href="painting-detail.html?type=ink&id=main19"><img src="assets/main/thumb-19.jpg" alt=""></a>
+    <a class="thumb t20" href="painting-detail.html?type=color&id=main20"><img src="assets/main/thumb-20.jpg" alt=""></a>
+    <a class="thumb t21" href="painting-detail.html?type=ink&id=main21"><img src="assets/main/thumb-21.jpg" alt=""></a>
+    <a class="thumb t22" href="painting-detail.html?type=ink&id=main22"><img src="assets/main/thumb-22.jpg" alt=""></a>
+    <a class="thumb t23" href="painting-detail.html?type=color&id=main23"><img src="assets/main/thumb-23.jpg" alt=""></a>
+    <a class="thumb t24" href="painting-detail.html?type=color&id=main24"><img src="assets/main/thumb-24.jpg" alt=""></a>
+    <a class="thumb t25" href="painting-detail.html?type=color&id=main25"><img src="assets/main/thumb-25.jpg" alt=""></a>
+    <a class="thumb t26" href="painting-detail.html?type=color&id=main26"><img src="assets/main/thumb-26.jpg" alt=""></a>
+    <a class="thumb t27" href="painting-detail.html?type=color&id=main27"><img src="assets/main/thumb-27.jpg" alt=""></a>
+    <a class="thumb t28" href="painting-detail.html?type=color&id=main28"><img src="assets/main/thumb-28.jpg" alt=""></a>
+    <a class="thumb t29" href="painting-detail.html?type=color&id=main29"><img src="assets/main/thumb-29.jpg" alt=""></a>
+    <a class="thumb t30" href="painting-detail.html?type=ink&id=main30"><img src="assets/main/thumb-30.jpg" alt=""></a>
+    <a class="thumb t31" href="painting-detail.html?type=color&id=main31"><img src="assets/main/thumb-31.jpg" alt=""></a>
+    <a class="thumb t32" href="painting-detail.html?type=ink&id=main32"><img src="assets/main/thumb-32.jpg" alt=""></a>
+    <a class="thumb t33" href="painting-detail.html?type=color&id=main33"><img src="assets/main/thumb-33.jpg" alt=""></a>
+    <a class="thumb t34" href="painting-detail.html?type=ink&id=main34"><img src="assets/main/thumb-34.jpg" alt=""></a>
+    <a class="thumb t35" href="painting-detail.html?type=color&id=main35"><img src="assets/main/thumb-35.jpg" alt=""></a>
+    <a class="thumb t36" href="painting-detail.html?type=color&id=main36"><img src="assets/main/thumb-36.jpg" alt=""></a>
+    <a class="thumb t37" href="painting-detail.html?type=ink&id=main37"><img src="assets/main/thumb-37.jpg" alt=""></a>
+    <a class="thumb t38" href="painting-detail.html?type=ink&id=main38"><img src="assets/main/thumb-38.jpg" alt=""></a>
+    <a class="thumb t39" href="painting-detail.html?type=ink&id=main39"><img src="assets/main/thumb-39.jpg" alt=""></a>
+    <a class="thumb t40" href="painting-detail.html?type=ink&id=main40"><img src="assets/main/thumb-40.jpg" alt=""></a>
+    <a class="thumb t41" href="painting-detail.html?type=ink&id=main41"><img src="assets/main/thumb-41.jpg" alt=""></a>
+    <a class="thumb t42" href="painting-detail.html?type=ink&id=main42"><img src="assets/main/thumb-42.jpg" alt=""></a>
+    <a class="thumb t43" href="painting-detail.html?type=color&id=main43"><img src="assets/main/thumb-43.jpg" alt=""></a>
+  </div>
+</div>
 
-  <script>
-    // ---------- 슬라이더 ----------
-    const slides = document.querySelectorAll(".slide");
-    const prevBtn = document.querySelector(".hero-control.prev");
-    const nextBtn = document.querySelector(".hero-control.next");
-    let currentIndex = 0;
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
-    }
-
-    function goNext() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    function goPrev() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    prevBtn.addEventListener("click", goPrev);
-    nextBtn.addEventListener("click", goNext);
-
-    // 자동 슬라이드 돌리고 싶으면 이 부분 주석 해제
-    // setInterval(goNext, 6000);
-
-    // ---------- 맨 위로 가기 버튼 ----------
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-    scrollTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    });
-
-    // 스크롤이 조금 내려갔을 때만 버튼 보이게 하고 싶으면 아래 코드 사용
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
-        scrollTopBtn.style.opacity = "1";
-        scrollTopBtn.style.pointerEvents = "auto";
-      } else {
-        scrollTopBtn.style.opacity = "0.3";
-        scrollTopBtn.style.pointerEvents = "auto";
-      }
-    });
-  </script>
+<button class="scroll-top-btn" id="scrollTopBtn"><span>&uarr;</span></button>
+<script src="app.js"></script>
 </body>
 </html>
