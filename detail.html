@@ -4,19 +4,65 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>LEE YUNHA – DETAIL</title>
+
   <link rel="stylesheet" href="css/style.css"/>
+
+  <style>
+    .detail-hero{
+      position:relative;
+      width:100%;
+      height:92vh;
+      min-height:520px;
+      background:#0b0b0b;
+      overflow:hidden;
+    }
+    .dslide{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transition:opacity .9s ease-in-out;
+    }
+    .dslide.active{ opacity:1; }
+    .detail-hero img{
+      width:100%;
+      height:100%;
+      object-fit:contain;   /* ✅ 창 줄여도 안 잘림 */
+      display:block;
+    }
+
+    .detail-body{
+      max-width:860px;
+      margin:0 auto;
+      padding:22px 20px 10px;
+    }
+    .detail-meta{
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.02em;
+      opacity:.95;
+    }
+    .detail-text{ display:none; }
+
+    .detail-backlink{
+      display:inline-flex;
+      align-items:center;
+      font-size:12px;
+      letter-spacing:.08em;
+      font-weight:700;
+      color:#fff;
+    }
+  </style>
 </head>
 
 <body>
 <header class="header">
-  <!-- ✅ BACK: type에 따라 자동으로 href가 바뀝니다 -->
-  <a href="/" class="logo" id="backLink" style="font-size:12px;letter-spacing:.08em;color:#fff;">BACK</a>
+  <a href="index.html" class="logo detail-backlink" id="backLink">BACK</a>
 
   <nav class="nav" id="topNav">
-    <a data-key="main" href="https://jalynneyh.github.io/">MAIN</a>
-    <a data-key="design" href="https://jalynneyh.github.io/design/">DESIGN</a>
-    <a data-key="color" href="https://jalynneyh.github.io/color-painting/">COLOR PAINTING</a>
-    <a data-key="ink" href="https://jalynneyh.github.io/ink-painting/">INK PAINTING</a>
+    <a href="https://jalynneyh.github.io/">MAIN</a>
+    <a href="https://jalynneyh.github.io/design/">DESIGN</a>
+    <a href="https://jalynneyh.github.io/color-painting/">COLOR PAINTING</a>
+    <a href="https://jalynneyh.github.io/ink-painting/">INK PAINTING</a>
   </nav>
 </header>
 
@@ -27,136 +73,141 @@
 
 <div class="detail-body">
   <div class="detail-meta" id="detailMeta"></div>
-  <div class="detail-text" id="detailText"></div>
 </div>
 
 <div class="footer">© 2025 LEE YUNHA. All rights reserved.</div>
 <button class="scroll-top-btn" id="scrollTopBtn"><span>&uarr;</span></button>
 
 <script src="js/app.js"></script>
+
 <script>
-/* =================================================
-   ✅ 1) DETAIL_DATA (요청사항: design 1~8은 1장, 텍스트 2020)
-================================================= */
-const DETAIL_DATA = {
-  design: {
-    "1": { images: 1, text: `2020` },
-    "2": { images: 1, text: `2020` },
-    "3": { images: 1, text: `2020` },
-    "4": { images: 1, text: `2020` },
-    "5": { images: 1, text: `2020` },
-    "6": { images: 1, text: `2020` },
-    "7": { images: 1, text: `2020` },
-    "8": { images: 1, text: `2020` },
-  },
-
-  // 필요해지면 채우면 됩니다
-  color: {},
-  ink: {},
-  main: {},
-};
-
-function getData(type, id){
-  const t = DETAIL_DATA[type] || {};
-  return t[id] || { images: 1, text: "여기에 작품 설명을 입력하시면 됩니다." };
-}
-
-/* =================================================
-   ✅ 2) URL 파라미터 읽기
-================================================= */
+/* ===============================
+   URL PARAM
+=============================== */
 const p = new URLSearchParams(location.search);
-const type = (p.get("type") || "main").toLowerCase();   // main / design / color / ink
-const id = p.get("id") || "1";
-const data = getData(type, id);
+const type = (p.get("type") || "design").toLowerCase();
+const id = (p.get("id") || "1");
 
-/* =================================================
-   ✅ 3) BACK 자동 링크
-   - main: /
-   - design: /design/
-   - color: /color-painting/
-   - ink: /ink-painting/
-================================================= */
-(function(){
-  const a = document.getElementById("backLink");
-  if(!a) return;
+/* ===============================
+   BACK + NAV ACTIVE
+=============================== */
+const TYPE_HOME = {
+  main:   "https://jalynneyh.github.io/",
+  design: "https://jalynneyh.github.io/design/",
+  color:  "https://jalynneyh.github.io/color-painting/",
+  ink:    "https://jalynneyh.github.io/ink-painting/"
+};
+document.getElementById("backLink").href = TYPE_HOME[type] || TYPE_HOME.main;
 
-  const map = {
-    main: "/",
-    design: "/design/",
-    color: "/color-painting/",
-    ink: "/ink-painting/",
-  };
-  a.href = map[type] || "/";
-})();
-
-/* =================================================
-   ✅ 4) NAV ACTIVE를 "type 기준"으로 강제 적용
-   - detail 페이지에서는 경로가 /detail.html 이라
-     기존 로직이 MAIN으로 잡히는 문제를 여기서 해결합니다.
-================================================= */
 (function(){
   const nav = document.getElementById("topNav");
   if(!nav) return;
-
-  const links = nav.querySelectorAll("a");
-  links.forEach(a => a.classList.remove("active"));
-
-  // type 값이 color면 COLOR PAINTING이 active
-  const key = (type === "color") ? "color"
-            : (type === "ink") ? "ink"
-            : (type === "design") ? "design"
-            : "main";
-
-  const target = nav.querySelector(`a[data-key="${key}"]`);
-  if(target) target.classList.add("active");
+  nav.querySelectorAll("a").forEach(a=>a.classList.remove("active"));
+  const map = { main:"MAIN", design:"DESIGN", color:"COLOR PAINTING", ink:"INK PAINTING" };
+  nav.querySelectorAll("a").forEach(a=>{
+    if(a.textContent.trim().toUpperCase() === map[type]) a.classList.add("active");
+  });
 })();
 
-/* =================================================
-   ✅ 5) META + TEXT 출력
-================================================= */
-document.getElementById("detailMeta").innerText = `${type.toUpperCase()} · #${id}`;
-document.getElementById("detailText").innerText = data.text;
+/* ===============================
+   META (제목 / 연도)
+=============================== */
+const META = {
+  design:{
+    "1":{ title:"haing", year:"2020" },
+    "2":{ title:"방백", year:"2023" },
+    "3":{ title:"doubt it!", year:"2023" },
+    "4":{ title:"우리두리", year:"2023" },
+    "5":{ title:"Sirenz", year:"2025" },
+    "6":{ title:"Expansion of roles", year:"2023" },
+    "7":{ title:"레이블즈", year:"2023" },
+    "8":{ title:"세종한글축제", year:"2025" }
+  }
+};
 
-/* =================================================
-   ✅ 6) 슬라이드 생성
-   - assets/{type}/detail/{id}-{nn}.png
-   - 예: assets/design/detail/1-01.png
-================================================= */
+/* ===============================
+   ✅ 디자인 이미지 링크 (윤하님 제공분 반영)
+=============================== */
+const ASSET_URLS = {
+  design:{
+    "1":[
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789865/original_12c4d8cb5ac551b89a28cdf7c40b0668.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789862/original_3c2a0eb84875293096bab611362ef3f0.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789864/original_63f4c1e04e2ec4ee3303a410cba5d9ec.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789863/original_f33e6a2fb494a5aa0ee8e62ce6deaf25.png"
+    ],
+    "2":[
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789772/original_3781d629661546af8cfd277b2be056ed.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789770/original_f3b992b2721b0e09cdb07c366990de3d.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789769/original_e1f3d6b3a3ba085e265b6136286d4e55.png"
+    ],
+    "3":[
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789771/original_2c47ea2495b4bae35fc51c556cade47c.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789787/original_e2e307622884198bd687bc53e22211d4.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789774/original_2c0671696862f43f3fdb7060db55b939.png"
+    ],
+    "4":[
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789780/original_d9aa91d392dc87d04ca68ef4b76a245e.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789781/original_07550135062582cec71feeb7cddd804e.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789776/original_9a5c264adab6af8ee050d7d222902c2b.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789782/original_4cb2b13607f4b7c4021c2b4d7bbbcc27.png"
+    ],
+    "5":[
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789792/original_ecbc0e93fbfe11a3456dc5867ca70fc8.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789789/original_f1462fdadb0cee8dc61fd311209298b3.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789793/original_e5d574d3167db4c40a42f822b05e3ee8.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789801/original_0c4592766601a78d8e811f75d6042395.png"
+    ],
+    "6":[
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789794/original_56b7b90e8f44e9f7584f8fd2349176be.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789796/original_7da7b1a825b5a706badb3764b7544ea2.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789799/original_040a0125e86a7c40d2ef2867595f07db.png"
+    ],
+    "7":[
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789800/original_3d1cecbee06e7a95a9fb3160c687db81.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789804/original_1600dd2813f9a8c568261354cbb0b406.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789806/original_3596717d0e64482dd5588fa961e19492.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789805/original_c161d0113e60be5e9550156c264c0d45.png"
+    ],
+    "8":[
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789810/original_feec6d69ac40f60e98ae9089f8c64eee.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789809/original_cff13ef233e55d6dee796cecf462b8b9.png",
+      "https://d2w9rnfcy7mm78.cloudfront.net/41789820/original_4330fb66e026479e33e426dbde6c25fd.png"
+    ]
+  }
+};
+
+/* ===============================
+   RENDER
+=============================== */
+const meta = META[type]?.[id];
+document.getElementById("detailMeta").innerText =
+  meta ? `${meta.title} / ${meta.year}` : "";
+
 const hero = document.getElementById("detailHero");
-let slides = [];
+const slides = [];
 let idx = 0;
 
-for(let i=1;i<=data.images;i++){
-  const nn = String(i).padStart(2,"0");
-  const el = document.createElement("div");
-  el.className = "dslide" + (i===1 ? " active" : "");
-  el.innerHTML = `<img src="assets/${type}/detail/${id}-${nn}.png" alt="">`;
-  hero.appendChild(el);
-  slides.push(el);
-}
+(ASSET_URLS[type]?.[id] || []).forEach((url,i)=>{
+  const d = document.createElement("div");
+  d.className = "dslide" + (i===0?" active":"");
+  d.innerHTML = `<img src="${url}" alt="">`;
+  hero.appendChild(d);
+  slides.push(d);
+});
 
 function show(i){
   slides.forEach(s=>s.classList.remove("active"));
   slides[i].classList.add("active");
 }
+function hasMulti(){ return slides.length>1; }
 
 const prev = document.getElementById("dPrev");
 const next = document.getElementById("dNext");
+prev.style.display = next.style.display = hasMulti() ? "block" : "none";
 
-function hasMulti(){ return slides.length > 1; }
-prev.style.display = hasMulti() ? "block" : "none";
-next.style.display = hasMulti() ? "block" : "none";
-
-prev.addEventListener("click", ()=>{
-  if(!hasMulti()) return;
-  idx = (idx - 1 + slides.length) % slides.length;
-  show(idx);
-});
-next.addEventListener("click", ()=>{
-  if(!hasMulti()) return;
-  idx = (idx + 1) % slides.length;
-  show(idx);
-});
+prev.onclick = ()=>{ idx=(idx-1+slides.length)%slides.length; show(idx); };
+next.onclick = ()=>{ idx=(idx+1)%slides.length; show(idx); };
 </script>
 </body>
 </html>
