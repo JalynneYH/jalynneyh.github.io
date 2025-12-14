@@ -4,7 +4,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { width:100%; }
 body{
-  background:#0b0b0b; /* ✅ 메인도 부드러운 블랙 */
+  background:#0b0b0b;
   color:#fff;
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
   overflow-x:hidden;
@@ -26,19 +26,18 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
   z-index:50;
 }
 .logo{
-  display:inline-flex;         /* ✅ 클릭 영역 안정 */
+  display:inline-flex;
   align-items:center;
   position:relative;
-  z-index:60;                  /* ✅ 로고 클릭 안 되는 문제 방지 */
+  z-index:60;
 }
-.logo img{
-  height:56px;
-}
+.logo img{ height:56px; }
+
 .nav{
   display:flex;
   gap:28px;
   position:relative;
-  z-index:60;                  /* ✅ 네비 클릭 안 되는 문제 방지 */
+  z-index:60;
 }
 .nav a{
   font-size:12px;
@@ -54,11 +53,8 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
 ================================================= */
 .page{ width:100%; }
 
-/* ✅ 네비바 아래 첫 썸네일까지 여백 통일 */
-.section-gap-top{ margin-top:20px; }
-
 /* =================================================
-   HERO / SLIDER (메인에서만 존재)
+   HERO / SLIDER (메인에서만)
 ================================================= */
 .hero{ position:relative; width:100%; overflow:hidden; }
 .hero-slider{ position:relative; height:90vh; min-height:520px; }
@@ -81,7 +77,6 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
   object-fit:cover;
 }
 
-/* 좌우 클릭 영역 */
 .hero-control{
   position:absolute;
   top:0;
@@ -106,30 +101,31 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
 .hero-control:hover .hero-arrow{ opacity:1; }
 
 /* =================================================
-   CANVAS / THUMBNAILS  (옵션B: 1920기준 좌표를 비율 스케일)
+   CANVAS / THUMBNAILS (옵션B 스케일)
 ================================================= */
-/* ✅ 중요: 슬라이드 아래 “추가 간격”은 여기서만 최소화합니다.
-   실제로 ‘한참 내려야 보이는 문제’는 캔버스 내부 top 좌표(1298px) 때문이라
-   JS data-offset으로 제거해야 합니다.
-*/
-.stage{ margin-top:18px; }  /* ✅ 슬라이더-썸네일 사이 간격 줄임 */
+/* ✅ 메인에서 “슬라이드 아래 첫 썸네일” 간격은 data-offset으로 조절
+   여기서는 stage는 너무 크게 띄우지 않게만 유지 */
+.stage{ margin-top:40px; }
 
-.canvas-stage{ width:100%; }
+.canvas-stage{
+  width:100%;
+  /* ✅ JS가 높이를 정확히 넣을 수 있게 기본은 auto */
+  height:auto;
+}
 .canvas-wrap{
   width:100%;
   display:flex;
-  justify-content:center;  /* 가운데 정렬 */
+  justify-content:center;
 }
 
-/* ✅ 캔버스 자체를 스케일(transform) */
+/* ✅ 핵심: 캔버스 전체를 transform으로 스케일 */
 .canvas{
   position:relative;
-  width:1920px;                 /* 기준 폭 */
+  width:1920px;
   transform-origin: top left;
   transform: scale(var(--scale, 1));
 }
 
-/* ✅ 클릭/호버용 썸네일 */
 .thumb{
   position:absolute;
   overflow:hidden;
@@ -146,7 +142,7 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
 }
 
 /* =================================================
-   SCROLL TOP (원형 + 화살표 흰색)
+   SCROLL TOP (원형)
 ================================================= */
 .scroll-top-btn{
   position:fixed;
@@ -176,90 +172,21 @@ img{ -webkit-user-drag:none; user-select:none; display:block; }
 
 /* =================================================
    FOOTER (모든 페이지 공통)
-   ✅ “조금 더 아래로” + “그 아래 40px 정도만”
+   ✅ “너무 위로 붙는 문제” 방지:
+   - 상단 여백은 작게
+   ✅ “문구 아래 빈공간 과다” 해결:
+   - bottom padding 최소
 ================================================= */
 .footer{
   text-align:center;
   color:#fff;
-  font-size:12px;                /* 네비바 글씨 수준 */
+  font-size:12px;
   letter-spacing:0.02em;
   font-weight:700;
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  padding-top:80px;              /* ✅ 문구를 더 아래로 */
-  padding-bottom:40px;           /* ✅ 그 아래는 40px만 */
-}
-
-/* =================================================
-   DETAIL PAGE (공용 템플릿)
-================================================= */
-.detail-hero{
-  position:relative;
-  width:100%;
-  height:92vh;
-  min-height:520px;
-  overflow:hidden;
-  background:#000;
-}
-.detail-hero .slide{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  transition: opacity 0.9s ease-in-out;
-}
-.detail-hero .slide.active{ opacity:1; }
-.detail-hero img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-.detail-nav{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-}
-.detail-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:44px;
-  color:#fff;
-  opacity:0.7;
-  pointer-events:auto;
-  cursor:pointer;
-  padding:12px;
-}
-.detail-btn:hover{ opacity:1; }
-.detail-btn.prev{ left:18px; }
-.detail-btn.next{ right:18px; }
-.detail-back{
-  position:fixed;
-  right:32px;
-  top:28px;
-  font-size:28px;
-  color:#fff;
-  opacity:0.9;
-  cursor:pointer;
-  z-index:200;
-}
-.detail-back:hover{ opacity:1; }
-
-.detail-body{
-  max-width:860px;
-  margin:0 auto;
-  padding:28px 20px 10px;
-}
-.detail-meta{
-  color:#fff;
-  font-size:12px;
-  opacity:0.9;
-  margin-top:10px;
-}
-.detail-text{
-  margin-top:18px;
-  font-size:12px;
-  line-height:1.8;
-  color:#fff;
-  opacity:0.9;
-  white-space:pre-wrap;
+  /* ✅ 썸네일 끝과 살짝만 띄우고 */
+  padding-top:28px;
+  /* ✅ 아래는 조금만 남기고 끝 */
+  padding-bottom:18px;
 }
