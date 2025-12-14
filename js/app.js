@@ -33,23 +33,51 @@ window.addEventListener("load", applyCanvasScale);
 window.addEventListener("resize", applyCanvasScale);
 
 /* =================================================
-   NAV ACTIVE AUTO
+   NAV ACTIVE (detail.html은 type 파라미터 기준)
 ================================================= */
-(function(){
+(function () {
   const nav = document.getElementById("topNav");
-  if(!nav) return;
+  if (!nav) return;
 
-  const links = nav.querySelectorAll("a");
-  const here = location.href.replace(/\/+$/,"");
+  const links = Array.from(nav.querySelectorAll("a"));
+  links.forEach((a) => a.classList.remove("active"));
 
-  links.forEach(a => a.classList.remove("active"));
-  links.forEach(a => {
-    const href = a.href.replace(/\/+$/,"");
-    if (here === href || (href !== a.origin + "/" && here.startsWith(href))) {
+  const url = new URL(location.href);
+  const path = url.pathname.replace(/\/+$/, "");
+
+  // 1) detail.html이면 ?type= 으로 강제 active
+  if (path.endsWith("/detail.html") || path === "/detail.html") {
+    const type = (url.searchParams.get("type") || "main").toLowerCase();
+
+    // type → 활성화시킬 메뉴 경로 매핑
+    const map = {
+      main: "/",
+      design: "/design/",
+      "color": "/color-painting/",
+      "color-painting": "/color-painting/",
+      ink: "/ink-painting/",
+      "ink-painting": "/ink-painting/",
+    };
+
+    const targetPath = (map[type] || "/").replace(/\/+$/, "") || "/";
+
+    links.forEach((a) => {
+      const p = new URL(a.href).pathname.replace(/\/+$/, "") || "/";
+      if (p === targetPath) a.classList.add("active");
+    });
+
+    return;
+  }
+
+  // 2) 그 외 페이지는 pathname 기준으로 active
+  links.forEach((a) => {
+    const p = new URL(a.href).pathname.replace(/\/+$/, "") || "/";
+    if (path === p || (p !== "/" && path.startsWith(p))) {
       a.classList.add("active");
     }
   });
 })();
+
 
 /* =================================================
    SCROLL TO TOP
