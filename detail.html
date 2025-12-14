@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css"/>
 
   <style>
+    /* ====== DETAIL HERO ====== */
     .detail-hero{
       position:relative;
       width:100%;
@@ -21,15 +22,43 @@
       inset:0;
       opacity:0;
       transition:opacity .9s ease-in-out;
+      z-index:1;
     }
     .dslide.active{ opacity:1; }
     .detail-hero img{
       width:100%;
       height:100%;
-      object-fit:contain;   /* ✅ 창 줄여도 안 잘림 */
+      object-fit:contain;   /* ✅ 창 줄여도 잘림 없음 */
       display:block;
     }
 
+    /* ====== ARROWS (✅ 여기서 확실히 고정) ====== */
+    .detail-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:44px;
+      color:#fff;
+      opacity:.75;
+      cursor:pointer;
+      user-select:none;
+      z-index:50;
+      padding:14px 16px;
+      line-height:1;
+      pointer-events:auto;
+    }
+    .detail-btn:hover{ opacity:1; }
+
+    /* ✅ prev는 왼쪽 */
+    #dPrev{ left:18px; right:auto; }
+
+    /* ✅ next는 오른쪽 (left 초기화 필수) */
+    #dNext{ right:18px; left:auto; }
+
+    /* 혹시 공용 CSS가 버튼을 덮는 경우 대비 */
+    .detail-hero *{ box-sizing:border-box; }
+
+    /* ====== META(CAPTION) ====== */
     .detail-body{
       max-width:860px;
       margin:0 auto;
@@ -43,6 +72,7 @@
     }
     .detail-text{ display:none; }
 
+    /* BACK 링크 */
     .detail-backlink{
       display:inline-flex;
       align-items:center;
@@ -67,6 +97,7 @@
 </header>
 
 <section class="detail-hero" id="detailHero">
+  <!-- ✅ 버튼은 HERO 안에 고정 배치 -->
   <div class="detail-btn prev" id="dPrev">&#10094;</div>
   <div class="detail-btn next" id="dNext">&#10095;</div>
 </section>
@@ -102,10 +133,14 @@ document.getElementById("backLink").href = TYPE_HOME[type] || TYPE_HOME.main;
 (function(){
   const nav = document.getElementById("topNav");
   if(!nav) return;
+
   nav.querySelectorAll("a").forEach(a=>a.classList.remove("active"));
+
   const map = { main:"MAIN", design:"DESIGN", color:"COLOR PAINTING", ink:"INK PAINTING" };
+  const want = map[type] || "MAIN";
+
   nav.querySelectorAll("a").forEach(a=>{
-    if(a.textContent.trim().toUpperCase() === map[type]) a.classList.add("active");
+    if(a.textContent.trim().toUpperCase() === want) a.classList.add("active");
   });
 })();
 
@@ -126,7 +161,7 @@ const META = {
 };
 
 /* ===============================
-   ✅ 디자인 이미지 링크 (윤하님 제공분 반영)
+   ✅ 디자인 이미지 링크 (윤하님 제공분)
 =============================== */
 const ASSET_URLS = {
   design:{
@@ -178,36 +213,62 @@ const ASSET_URLS = {
 };
 
 /* ===============================
-   RENDER
+   RENDER META
 =============================== */
 const meta = META[type]?.[id];
 document.getElementById("detailMeta").innerText =
   meta ? `${meta.title} / ${meta.year}` : "";
 
+/* ===============================
+   RENDER SLIDES (✅ 작동 보장)
+=============================== */
 const hero = document.getElementById("detailHero");
 const slides = [];
 let idx = 0;
 
-(ASSET_URLS[type]?.[id] || []).forEach((url,i)=>{
+const urls = (ASSET_URLS[type] && ASSET_URLS[type][id]) ? ASSET_URLS[type][id] : [];
+
+urls.forEach((url, i) => {
   const d = document.createElement("div");
-  d.className = "dslide" + (i===0?" active":"");
+  d.className = "dslide" + (i === 0 ? " active" : "");
   d.innerHTML = `<img src="${url}" alt="">`;
   hero.appendChild(d);
   slides.push(d);
 });
 
 function show(i){
+  if(slides.length === 0) return;
   slides.forEach(s=>s.classList.remove("active"));
   slides[i].classList.add("active");
 }
-function hasMulti(){ return slides.length>1; }
+
+function hasMulti(){ return slides.length > 1; }
 
 const prev = document.getElementById("dPrev");
 const next = document.getElementById("dNext");
-prev.style.display = next.style.display = hasMulti() ? "block" : "none";
 
-prev.onclick = ()=>{ idx=(idx-1+slides.length)%slides.length; show(idx); };
-next.onclick = ()=>{ idx=(idx+1)%slides.length; show(idx); };
+prev.style.display = hasMulti() ? "block" : "none";
+next.style.display = hasMulti() ? "block" : "none";
+
+prev.addEventListener("click", (e)=>{
+  e.preventDefault();
+  if(!hasMulti()) return;
+  idx = (idx - 1 + slides.length) % slides.length;
+  show(idx);
+});
+next.addEventListener("click", (e)=>{
+  e.preventDefault();
+  if(!hasMulti()) return;
+  idx = (idx + 1) % slides.length;
+  show(idx);
+});
+
+/* ✅ 키보드도 지원 (선택) */
+window.addEventListener("keydown", (e)=>{
+  if(!hasMulti()) return;
+  if(e.key === "ArrowLeft") prev.click();
+  if(e.key === "ArrowRight") next.click();
+});
 </script>
 </body>
 </html>
